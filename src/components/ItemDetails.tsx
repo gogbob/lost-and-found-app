@@ -25,8 +25,7 @@ const ItemDetails: React.FC = () => {
     <div className="container">
       <h1 className="title">{item.title}</h1>
       <p className="description">{item.description}</p>
-      <p className="date">{item.date}</p>
-      <p className="type">{item.type === 'lost' ? 'Lost' : 'Found'}</p>
+      <p className="status">{item.type === 'lost' ? 'Lost' : 'Found'}</p>
     </div>
   );
 };
