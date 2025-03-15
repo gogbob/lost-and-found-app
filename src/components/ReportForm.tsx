@@ -20,7 +20,7 @@ const ReportForm: React.FC = () => {
       type,
     };
     addItem(newItem);
-    navigate('/');
+    navigate(`/item/${newItem.id}`);
   };
 
   return (

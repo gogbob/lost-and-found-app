@@ -25,12 +25,12 @@
 }
 
 .input, .textarea, .select {
-  width: 100%;
+  width: 100%; /* Make the input, textarea, and select elements full width */
   padding: 10px;
   border: 1px solid #000000; /* Black outline */
   background-color: #d3d3d3; /* Light grey background */
   border-radius: 4px;
-  color: #000000;
+  color: #000000; /* Black text color */
 }
 
 .textarea {

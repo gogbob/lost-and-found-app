@@ -1,22 +1,22 @@
+import axios from 'axios';
 import { Item } from './types';
 
-let items: Item[] = [
-  { id: '1', title: 'Wallet', description: 'Black leather wallet', date: '2025-03-01', type: 'lost' },
-  { id: '2', title: 'Keys', description: 'Set of car keys', date: '2025-03-05', type: 'found' },
-];
+const BASE_URL = 'http://127.0.0.1:8000/item';
 
-export const getItems = (): Item[] => {
-  return items;
+export const getItems = async (): Promise<Item[]> => {
+  const response = await axios.get(BASE_URL);
+  return response.data;
 };
 
-export const addItem = (item: Item): void => {
-  items.push(item);
+export const addItem = async (item: Item): Promise<void> => {
+  await axios.post(BASE_URL, item);
 };
 
-export const updateItem = (updatedItem: Item): void => {
-  items = items.map(item => (item.id === updatedItem.id ? updatedItem : item));
+export const updateItem = async (updatedItem: Item): Promise<void> => {
+  await axios.put(`${BASE_URL}/${updatedItem.id}`, updatedItem);
 };
 
-export const getItemById = (id: string): Item | undefined => {
-  return items.find(item => item.id === id);
+export const getItemById = async (id: string): Promise<Item | undefined> => {
+  const response = await axios.get(`${BASE_URL}/${id}`);
+  return response.data;
 };

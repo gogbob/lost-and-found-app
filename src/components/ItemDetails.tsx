@@ -9,12 +9,13 @@ const ItemDetails: React.FC = () => {
   const [item, setItem] = useState<Item | null>(null);
 
   useEffect(() => {
-    if (id) {
-      const fetchedItem = getItemById(id);
-      if (fetchedItem) {
-        setItem(fetchedItem);
+      if (id) {
+          getItemById(id).then(fetchedItem => {
+              if (fetchedItem) {
+                  setItem(fetchedItem);
+              }
+          });
       }
-    }
   }, [id]);
 
   if (!item) {

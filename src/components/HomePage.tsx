@@ -9,8 +9,12 @@ const HomePage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    setItems(getItems());
-  }, []);
+      const fetchItems = async () => {
+        const items = await getItems();
+        setItems(items);
+      };
+      fetchItems();
+    }, []);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
